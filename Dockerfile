@@ -4,14 +4,16 @@ LABEL mantainer Paweł Kędra <pawelkedraa@gmail.com>
 USER root
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
-	apt-utils \
 	git \
 	graphviz \
 	nano \
 	python3-dev \
 	python3-pip \
 	python3-numpy \
+	python3-matplotlib \
 	python3-scipy
+
+RUN apt-get autoremove -y && apt-get autoclean -y
 
 RUN pip3 install --upgrade pip
 
@@ -19,7 +21,12 @@ RUN pip3 install --upgrade pip
 # RUN pip3 install --no-deps git+git://github.com/Theano/Theano.git
 RUN pip3 install theano
 
-RUN pip3 install keras h5py pydot-ng scikit-learn jupyter
+RUN pip3 install keras \
+	h5py \
+	pydot-ng \
+	opencv-python \
+	scikit-learn \
+	jupyter
 
 # Theano config
 RUN echo "[global]\ndevice = gpu\nfloatX = float32\n\n[cuda]\nroot = /usr/local/cuda" > ~/.theanorc
