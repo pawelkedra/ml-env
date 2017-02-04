@@ -1,6 +1,6 @@
 # ML environment Docker image
 
-Docker image with CUDA 8, cuDNN 5.1.10, Python 3, Theano, Keras and Jupyter Notebook installed. GPU acceleration available if you use [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
+Docker image with CUDA 8, cuDNN 5.1.10, Python 3, Theano, Keras, OpenCV, Matplotlib and Jupyter Notebook installed. GPU acceleration available if you use [nvidia-docker](https://github.com/NVIDIA/nvidia-docker).
 
 ## Requirements
 * Installed Docker
@@ -16,7 +16,7 @@ where ```ml-env``` can be replaced with any other name.
 
 ```nvidia-docker run -it --rm -p 8888:8888 --volume $(pwd):/host_dir --workdir /host_dir ml-env bash```
 
-This command creates and starts container from previously built image (```ml-env```) with current host directory mounted as /host_dir () and set as working directory.
+This command creates and starts container from previously built image (```ml-env```) with current host directory mounted as /host_dir and set as working directory.
 
 ### What does this weird parameters mean?
 
